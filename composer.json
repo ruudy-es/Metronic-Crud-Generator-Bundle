@@ -1,0 +1,36 @@
+{
+    "name" : "ruudy/metronic-crud-generator-bundle",
+    "description" : "Sension generator extended to implements Metronic Bundle on Crud Generator.",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "Daniel Abad Cambronero",
+        "email" : "daniel.abad.85@gmail.com"
+    }],
+    "keywords" : [
+        "metronick bundle"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+        "twig/extensions": "~1.0",
+        "ruudy/metronicbundle": "@dev"
+    },
+    "repositories" : [{
+        "type" : "vcs",
+        "url" : "https://bitbucket.org/ruudy/metronicbundle.git"
+    }],
+    "autoload" : {
+        "psr-0" : {
+            "Ruudy\\MetronicCrudGeneratorBundle" : ""
+        }
+    },
+    "target-dir" : "Ruudy/MetronicCrudGeneratorBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "0.3-dev"
+        }
+    }
+}

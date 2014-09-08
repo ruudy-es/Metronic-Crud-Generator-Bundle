@@ -1,0 +1,22 @@
+{%- for action in record_actions %}
+
+    {%- if action == 'show' %}
+
+        <a href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': entity.id }) }}" }}" class="btn grey-cascade">
+            <i class="fa fa-search"></i> {{ action }}
+        </a>
+
+    {%- elseif action == 'edit' %}
+
+        <a href="{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': entity.id }) }}" }}" class="btn blue-madison">
+            <i class="fa fa-edit"></i> {{ action }}
+        </a>
+
+    {%- elseif action == 'delete' %}
+
+        {{ "{% form_theme delete_form with ['KernBackendBundle:forms:layouts/delete-form-layout.html.twig'] %}" }}
+        {{ '{{ form(delete_form) }}' }}
+
+    {%- endif %}
+
+{%- endfor %}

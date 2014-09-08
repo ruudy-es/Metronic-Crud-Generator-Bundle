@@ -1,0 +1,41 @@
+{% block extends %}
+{{ "{% extends 'KernBackendBundle:pages:crud.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block content %}" }}
+    {{ "{% embed 'RuudyMetronicBundle:metronic:zones/admin/content.html.twig' %}" }}
+
+        {{ "{% block style_customizer %}" }}
+            {{ "{% include 'RuudyMetronicBundle:metronic:pieces/content/style_customizer.html.twig' %}" }}
+        {{ "{% endblock %}" }}
+
+        {{ "{% block page_header %}" }}
+            {{ "{% embed 'RuudyMetronicBundle:metronic:pieces/content/page_header.html.twig' %}" }}
+                {{ "{% block page_title %}" }}{{ entity }} edit{{ "{% endblock %}" }}
+            {{ "{% endembed %}" }}
+        {{ "{% endblock %}" }}
+
+        {{ "{%  block page_content %}" }}
+            {{ "{% embed 'RuudyMetronicBundle:metronic:modules/form_row_separated.html.twig' %}" }}
+                {{ "{% block portlet_header_color %}" }}
+                    {{ 'green-haze' }}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block portlet_title %}" }}
+                    {{ 'Campos' }}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block portlet_actions %}" }}
+                    {% set hide_edit, hide_delete = true, false %}
+                    {% include 'crud/views/others/record_actions.html.twig.twig' %}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block form %}" }}
+                    {{ "{% form_theme edit_form with ['KernBackendBundle:forms:layouts/crud-form-layout.html.twig'] %}" }}
+                    {{ '{{ form(edit_form) }}' }}
+                {{ "{% endblock %}" }}
+            {{ "{% endembed %}" }}
+        {{ "{% endblock %}" }}
+
+    {{ "{% endembed %}" }}
+{{ "{% endblock %}" }}

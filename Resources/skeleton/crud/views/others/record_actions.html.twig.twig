@@ -1,0 +1,14 @@
+<a href="{{ "{{ path('" ~ route_name_prefix ~ "') }}" }}" class="btn grey-gallery">
+    <i class="fa fa-list-ul"></i> Back to the list
+</a>
+
+{% if ('edit' in actions) and (not hide_edit) %}
+    <a href="{{ "{{ path('" ~ route_name_prefix ~ "_edit', { 'id': entity.id }) }}" }}" class="btn blue-madison">
+        <i class="fa fa-edit"></i> Edit
+    </a>
+{% endif %}
+
+{% if ('delete' in actions) and (not hide_delete) %}
+    {{ "{% form_theme delete_form with ['KernBackendBundle:forms:layouts/delete-form-layout.html.twig'] %}" }}
+    {{ '{{ form(delete_form) }}' }}
+{% endif %}

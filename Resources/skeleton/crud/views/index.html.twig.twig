@@ -1,0 +1,83 @@
+{% block extends %}
+{{ "{% extends 'KernBackendBundle:pages:crud.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block content %}" }}
+    {{ "{% embed 'RuudyMetronicBundle:metronic:zones/admin/content.html.twig' %}" }}
+
+        {{ "{% block style_customizer %}" }}
+            {{ "{% include 'RuudyMetronicBundle:metronic:pieces/content/style_customizer.html.twig' %}" }}
+        {{ "{% endblock %}" }}
+
+        {{ "{% block page_header %}" }}
+            {{ "{% embed 'RuudyMetronicBundle:metronic:pieces/content/page_header.html.twig' %}" }}
+                {{ "{% block page_title %}" }}{{ entity }} list{{ "{% endblock %}" }}
+            {{ "{% endembed %}" }}
+        {{ "{% endblock %}" }}
+
+        {{ "{%  block page_content %}" }}
+            {{ "{% embed 'RuudyMetronicBundle:metronic:modules/table_advanced.html.twig' with {'table_id': 'crud-table'} %}" }}
+                {{ "{% block portlet_header_color %}" }}
+                    {{ 'green-haze' }}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block portlet_title %}" }}
+                    {{ 'Listado' }}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block columns_filter %}" }}
+                    {%- for field, metadata in fields %}
+
+                        <label><input type="checkbox" checked data-column="{{ loop.index - 1 }}">{{ field|capitalize }}</label>
+
+                    {%- endfor %}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block new_path %}" }}{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}{{ "{% endblock %}" }}
+
+                {{ "{% block table_headers %}" }}
+                    {%- for field, metadata in fields %}
+
+                        <th>{{ field|capitalize }}</th>
+
+                    {%- endfor %}
+                    <th>Actions</th>
+                {{ "{% endblock %}" }}
+
+                {{ "{% block table_rows %}" }}
+                    {{ '{% for entity in entities %}' }}
+                        <tr>
+
+                    {%- for field, metadata in fields %}
+                        {%- if loop.first and ('show' in actions) %}
+
+                            <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+                        {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                            <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                        {%- else %}
+
+                            <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                        {%- endif %}
+
+                        {%- if loop.last %}
+
+                            <td>
+                                {%- include "crud/views/others/actions.html.twig.twig" %}
+                            </td>
+
+                        {%- endif %}
+                    {%- endfor %}
+
+                        </tr>
+                    {{ '{% endfor %}' }}
+                {{ "{% endblock %}" }}
+
+            {{ "{% endembed %}" }}
+        {{ "{% endblock %}" }}
+
+    {{ "{% endembed %}" }}
+{{ "{% endblock %}" }}

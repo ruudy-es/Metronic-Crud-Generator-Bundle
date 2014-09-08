@@ -1,0 +1,53 @@
+{% block extends %}
+    {{ "{% extends 'KernBackendBundle:pages:crud.html.twig' %}" }}
+{% endblock extends %}
+
+{{ "{% block content %}" }}
+    {{ "{% embed 'RuudyMetronicBundle:metronic:zones/admin/content.html.twig' %}" }}
+
+        {{ "{% block style_customizer %}" }}
+            {{ "{% include 'RuudyMetronicBundle:metronic:pieces/content/style_customizer.html.twig' %}" }}
+        {{ "{% endblock %}" }}
+
+        {{ "{% block page_header %}" }}
+            {{ "{% embed 'RuudyMetronicBundle:metronic:pieces/content/page_header.html.twig' %}" }}
+                {{ "{% block page_title %}" }}{{ entity }} show{{ "{% endblock %}" }}
+            {{ "{% endembed %}" }}
+        {{ "{% endblock %}" }}
+
+        {{ "{%  block page_content %}" }}
+            {{ "{% embed 'RuudyMetronicBundle:metronic:modules/form_row_separated.html.twig' %}" }}
+                {{ "{% block portlet_header_color %}" }}
+                    {{ 'green-haze' }}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block portlet_title %}" }}
+                    {{ 'Campos' }}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block portlet_actions %}" }}
+                    {% set hide_edit, hide_delete = true, false %}
+                    {% include 'crud/views/others/record_actions.html.twig.twig' %}
+                {{ "{% endblock %}" }}
+
+                {{ "{% block form %}" }}
+                <div class="form-horizontal form-row-seperated">
+                    <div class="body-form">
+                        {%- for field, metadata in fields %}
+                            <div class="form-group">
+                                <label class="control-label col-md-3">{{ field|capitalize }}</label>
+                                <div class="col-md-9">
+                                    <input class="form-control" type="text" disabled
+                                        value="{%- if metadata.type in ['date', 'datetime'] %}{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}' }}{%- else %}{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}{%- endif %}"
+                                        >
+                                </div>
+                            </div>
+                        {%- endfor %}
+                    </div>
+                </div>
+                {{ "{% endblock %}" }}
+            {{ "{% endembed %}" }}
+        {{ "{% endblock %}" }}
+
+    {{ "{% endembed %}" }}
+{{ "{% endblock %}" }}
