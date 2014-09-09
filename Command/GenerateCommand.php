@@ -18,7 +18,7 @@ class GenerateCommand extends ContainerAwareCommand
      */
     protected function configure()
     {
-        $this->$bundleSkeletonDir = __DIR__ . '/../Resources/skeleton/bundle/';
+        $this->bundleSkeletonDir = __DIR__ . '/../Resources/skeleton/bundle/';
 
         $this
             ->setName('ruudy:metronic-crud-generator:generate')
@@ -98,8 +98,8 @@ EOT
             }
 
             // TODO buscar en skeleton bundle si coincide la carpeta copiamos todo lo de dentro
-            $dest = realpath($this->$bundleSkeletonDir . $directory);
-            var_dump($dest);
+            $dest = realpath($this->bundleSkeletonDir . $directory);
+            $output->writeln(sprintf(($dest)));
             if (false === $dest) {
 
             }
@@ -116,7 +116,7 @@ EOT
 
         $output->writeln(sprintf('  > generating bundle file <comment>%s</comment>', $file));
 
-        $bundleTemplate = file_get_contents($this->$bundleSkeletonDir . 'bundle.mustache');
+        $bundleTemplate = file_get_contents($this->bundleSkeletonDir . 'bundle.mustache');
 
         $string = $this->mustache($bundleTemplate, array(
                 'bundle'    => $bundleMetadata->getName(),
