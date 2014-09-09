@@ -12,11 +12,14 @@ use Ruudy\MetronicCrudGeneratorBundle\Bundle\BundleMetadata;
 
 class GenerateCommand extends ContainerAwareCommand
 {
+    protected $bundleSkeletonDir;
     /**
      * {@inheritDoc}
      */
     protected function configure()
     {
+        $this->$bundleSkeletonDir = __DIR__ . '/../Resources/skeleton/bundle/';
+
         $this
             ->setName('ruudy:metronic-crud-generator:generate')
             ->setHelp(<<<EOT
@@ -86,11 +89,19 @@ EOT
             'Resources/views',
         );
 
+
         foreach ($directories as $directory) {
             $dir = sprintf('%s/%s', $bundleMetadata->getExtendedDirectory(), $directory);
             if (!is_dir($dir)) {
                 $output->writeln(sprintf('  > generating bundle directory <comment>%s</comment>', $dir));
                 mkdir($dir, 0755, true);
+            }
+
+            // TODO buscar en skeleton bundle si coincide la carpeta copiamos todo lo de dentro
+            $dest = realpath($this->$bundleSkeletonDir . $directory);
+            var_dump($dest);
+            if (false === $dest) {
+
             }
         }
     }
@@ -105,7 +116,7 @@ EOT
 
         $output->writeln(sprintf('  > generating bundle file <comment>%s</comment>', $file));
 
-        $bundleTemplate = file_get_contents(__DIR__.'/../Resources/skeleton/bundle/bundle.mustache');
+        $bundleTemplate = file_get_contents($this->$bundleSkeletonDir . 'bundle.mustache');
 
         $string = $this->mustache($bundleTemplate, array(
                 'bundle'    => $bundleMetadata->getName(),
