@@ -1,6 +1,6 @@
 {
     "name" : "ruudy/metronic-crud-generator-bundle",
-    "description" : "Sension generator extended to implements Metronic Bundle on Crud Generator.",
+    "description" : "Sensio generator extended to implements Metronic Bundle on Crud Generator.",
     "type" : "symfony-bundle",
     "authors" : [{
         "name" : "Daniel Abad Cambronero",
