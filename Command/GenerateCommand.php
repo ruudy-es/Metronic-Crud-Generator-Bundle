@@ -37,7 +37,7 @@ EOT
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $dest = $this->getContainer()->get('kernel')->getRootDir();
+        $dest = $this->getContainer()->get('kernel')->getRootDir() . '/../src';
 
         $configuration = array(
             'application_dir' =>  sprintf("%s/Application", $dest)
