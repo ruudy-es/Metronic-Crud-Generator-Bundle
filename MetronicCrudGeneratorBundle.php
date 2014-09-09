@@ -4,6 +4,6 @@ namespace Ruudy\MetronicCrudGeneratorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class RuudyMetronicCrudGeneratorBundle extends Bundle
+class MetronicCrudGeneratorBundle extends Bundle
 {
 }
