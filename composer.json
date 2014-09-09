@@ -14,7 +14,7 @@
     ],
     "require" : {
         "twig/extensions": "~1.0",
-        "ruudy/metronicbundle": "@dev"
+        "ruudy/metronic-bundle": "@dev"
     },
     "repositories" : [{
         "type" : "vcs",
