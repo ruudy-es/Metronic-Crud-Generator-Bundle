@@ -18,7 +18,7 @@
     },
     "repositories" : [{
         "type" : "vcs",
-        "url" : "https://bitbucket.org/ruudy/metronicbundle.git"
+        "url" : "https://bitbucket.org/ruudy/metronic-bundle.git"
     }],
     "autoload" : {
         "psr-0" : {
