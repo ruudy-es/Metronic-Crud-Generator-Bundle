@@ -9,6 +9,6 @@
 {% endif %}
 
 {% if ('delete' in actions) and (not hide_delete) %}
-    {{ "{% form_theme delete_form with ['KernBackendBundle:forms:layouts/delete-form-layout.html.twig'] %}" }}
+    {{ "{% form_theme delete_form with ['RuudyMetronicCrudGeneratorBundle:forms:layouts/delete-form-layout.html.twig'] %}" }}
     {{ '{{ form(delete_form) }}' }}
 {% endif %}

@@ -1,0 +1,40 @@
+{#  #}
+{% extends 'RuudyMetronicBundle:metronic:forms/elements/bootstrap-form-elements.html.twig' %}
+
+{# Start and end of the form #}
+{% block form_start %}
+    {% spaceless %}
+        {% set method = method|upper %}
+        {% if method in ["GET", "POST"] %}
+            {% set form_method = method %}
+        {% else %}
+            {% set form_method = "POST" %}
+        {% endif %}
+    <form style="display: inline-block;" method="{{ form_method|lower }}" class="form-horizontal form-row-seperated"
+    action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+    {% if form_method != method %}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {% endif %}
+    {% endspaceless %}
+{% endblock form_start %}
+
+{% block form_end %}
+    {% spaceless %}
+    {% if not render_rest is defined or render_rest %}
+        {{ form_rest(form) }}
+    {% endif %}
+    </form>
+    {% endspaceless %}
+{% endblock form_end %}
+
+{# Button #}
+{% block button_widget %}
+    {% spaceless %}
+        {% if label is empty %}
+            {% set label = name|humanize %}
+        {% endif %}
+        <button type="{{ type|default('button') }}" {{ block('button_attributes') }}
+                class="btn {% if type == 'submit' %}red-flamingo{% else %}default{% endif %}"
+                ><i class="fa fa-trash-o"></i> {{ label|trans({}, translation_domain) }}</button>
+    {% endspaceless %}
+{% endblock button_widget %}

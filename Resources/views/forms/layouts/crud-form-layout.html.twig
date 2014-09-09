@@ -1,0 +1,59 @@
+{#  #}
+
+{% extends 'RuudyMetronicBundle:metronic:forms/elements/bootstrap-form-elements.html.twig' %}
+
+{# Start and end of the form #}
+{% block form_start %}
+    {% spaceless %}
+        {% set method = method|upper %}
+        {% if method in ["GET", "POST"] %}
+            {% set form_method = method %}
+        {% else %}
+            {% set form_method = "POST" %}
+        {% endif %}
+    <form method="{{ form_method|lower }}" class="form-horizontal form-row-seperated"
+    action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+        <div class="form-body">
+    {% if form_method != method %}
+        <input type="hidden" name="_method" value="{{ method }}" />
+    {% endif %}
+    {% endspaceless %}
+{% endblock form_start %}
+
+{% block form_end %}
+        {% spaceless %}
+        {% if not render_rest is defined or render_rest %}
+            {{ form_rest(form) }}
+        {% endif %}
+        </div>
+    </form>
+    {% endspaceless %}
+{% endblock form_end %}
+
+{# Every row of the form fields #}
+{% block form_row %}
+    {% spaceless %}
+        <div class="form-group">
+            {{ form_label(form, null, {'label_attr': {'class': 'control-label col-md-3'}}) }}
+            <div class="col-md-9">
+                {{ form_widget(form) }}
+                <span class="help-block">{{ form_errors(form) }}</span>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+{# Row for a button #}
+{% block button_row %}
+    {% spaceless %}
+        <div class="form-actions fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-offset-3 col-md-9">
+                        {{ form_widget(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock button_row %}

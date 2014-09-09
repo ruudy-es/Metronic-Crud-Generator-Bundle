@@ -14,7 +14,8 @@
     ],
     "require" : {
         "twig/extensions": "~1.0",
-        "ruudy/metronic-bundle": "@dev"
+        "ruudy/metronic-bundle": "@dev",
+        "friendsofsymfony/jsrouting-bundle": "@stable"
     },
     "repositories" : [{
         "type" : "vcs",

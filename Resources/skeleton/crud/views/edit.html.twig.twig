@@ -1,5 +1,5 @@
 {% block extends %}
-{{ "{% extends 'KernBackendBundle:pages:crud.html.twig' %}" }}
+{{ "{% extends 'RuudyMetronicCrudGeneratorBundle:pages:crud.html.twig' %}" }}
 {% endblock extends %}
 
 {{ "{% block content %}" }}
@@ -31,7 +31,7 @@
                 {{ "{% endblock %}" }}
 
                 {{ "{% block form %}" }}
-                    {{ "{% form_theme edit_form with ['KernBackendBundle:forms:layouts/crud-form-layout.html.twig'] %}" }}
+                    {{ "{% form_theme edit_form with ['RuudyMetronicCrudGeneratorBundle:forms:layouts/crud-form-layout.html.twig'] %}" }}
                     {{ '{{ form(edit_form) }}' }}
                 {{ "{% endblock %}" }}
             {{ "{% endembed %}" }}
