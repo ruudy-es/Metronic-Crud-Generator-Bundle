@@ -89,7 +89,6 @@ EOT
             'Resources/views',
         );
 
-
         foreach ($directories as $directory) {
             $dir = sprintf('%s/%s', $bundleMetadata->getExtendedDirectory(), $directory);
             if (!is_dir($dir)) {
@@ -97,11 +96,14 @@ EOT
                 mkdir($dir, 0755, true);
             }
 
-            // TODO buscar en skeleton bundle si coincide la carpeta copiamos todo lo de dentro
-            $dest = realpath($this->bundleSkeletonDir . $directory);
-            $output->writeln(sprintf(($dest)));
-            if (false === $dest) {
-
+            // Search similar folder structure in the skeleton/bundle to copy to extended bundle
+            if ($directory != '') {
+                $dest = realpath($this->bundleSkeletonDir . $directory);
+                $output->writeln(sprintf(($dest)));
+                if (false === $dest) {
+                     // TODO copiar recursivamente
+                    $this->recurse_copy($dir, $dest);
+                }
             }
         }
     }
@@ -133,6 +135,24 @@ EOT
         };
 
         return preg_replace_callback('/{{\s*(.+?)\s*}}/', $replacer, $string);
+    }
+
+    protected function recurse_copy($src, $dst) {
+        $dir = opendir($src);
+
+        @mkdir($dst);
+        while(false !== ( $file = readdir($dir)) ) {
+            if (( $file != '.' ) && ( $file != '..' )) {
+                if ( is_dir($src . '/' . $file) ) {
+                    $this->recurse_copy($src . '/' . $file,$dst . '/' . $file);
+                }
+                else {
+                    copy($src . '/' . $file,$dst . '/' . $file);
+                }
+            }
+        }
+
+        closedir($dir);
     }
 
 } 
