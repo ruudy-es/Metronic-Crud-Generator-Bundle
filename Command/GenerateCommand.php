@@ -105,7 +105,9 @@ EOT
 
         $output->writeln(sprintf('  > generating bundle file <comment>%s</comment>', $file));
 
-        $string = $this->mustache($this->getBundleTemplate(), array(
+        $bundleTemplate = file_get_contents(__DIR__.'/../Resources/skeleton/bundle/bundle.mustache');
+
+        $string = $this->mustache($bundleTemplate, array(
                 'bundle'    => $bundleMetadata->getName(),
                 'namespace' => $bundleMetadata->getExtendedNamespace(),
             ));
@@ -121,4 +123,5 @@ EOT
 
         return preg_replace_callback('/{{\s*(.+?)\s*}}/', $replacer, $string);
     }
+
 } 
