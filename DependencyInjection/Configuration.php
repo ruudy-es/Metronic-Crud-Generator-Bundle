@@ -1,6 +1,6 @@
 <?php
 
-namespace Ruudy\MetronicCrudsGeneratorBundle\DependencyInjection;
+namespace Ruudy\MetronicCrudGeneratorBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

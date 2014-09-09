@@ -1,6 +1,6 @@
 <?php
 
-namespace Ruudy\MetronicCrudsGeneratorBundle\DependencyInjection;
+namespace Ruudy\MetronicCrudGeneratorBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

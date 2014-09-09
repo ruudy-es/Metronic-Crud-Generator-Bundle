@@ -1,6 +1,6 @@
 <?php
 
-namespace Ruudy\MetronicCrudsGeneratorBundle;
+namespace Ruudy\MetronicCrudGeneratorBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

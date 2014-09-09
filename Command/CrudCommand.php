@@ -6,7 +6,7 @@
  * Time: 8:56 AM
  */
 
-namespace Ruudy\MetronicCrudsGeneratorBundle\Command;
+namespace Ruudy\MetronicCrudGeneratorBundle\Command;
 
 use Sensio\Bundle\GeneratorBundle\Command\GenerateDoctrineCrudCommand;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
