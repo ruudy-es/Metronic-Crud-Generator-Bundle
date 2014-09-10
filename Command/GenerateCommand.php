@@ -102,7 +102,7 @@ EOT
                 $output->writeln(sprintf(($dest)));
                 if (false === $dest) {
                      // TODO copiar recursivamente
-                    $this->recurse_copy($dir, $dest);
+                    $this->recurse_copy($dest, $dir);
                 }
             }
         }
@@ -137,7 +137,8 @@ EOT
         return preg_replace_callback('/{{\s*(.+?)\s*}}/', $replacer, $string);
     }
 
-    protected function recurse_copy($src, $dst) {
+    protected function recurse_copy($src, $dst)
+    {
         $dir = opendir($src);
 
         @mkdir($dst);
