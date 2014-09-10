@@ -27,6 +27,6 @@ class Application{{ bundle }} extends Bundle
      */
     public function getParent()
     {
-        return '{{ bundle }}';
+        return '{{ extended_from }}';
     }
 }

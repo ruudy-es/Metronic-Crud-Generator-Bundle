@@ -120,8 +120,9 @@ EOT
         $bundleTemplate = file_get_contents($this->bundleSkeletonDir . 'bundle.mustache');
 
         $string = $this->mustache($bundleTemplate, array(
-                'bundle'    => $bundleMetadata->getExtendedName(),
-                'namespace' => $bundleMetadata->getExtendedNamespace(),
+                'bundle'        => $bundleMetadata->getExtendedName(),
+                'extended_from' => $bundleMetadata->getName(),
+                'namespace'     => $bundleMetadata->getExtendedNamespace(),
             ));
 
         file_put_contents($file, $string);
