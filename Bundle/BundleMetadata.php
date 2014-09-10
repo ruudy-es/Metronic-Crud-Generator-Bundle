@@ -15,6 +15,8 @@ class BundleMetadata {
 
     protected $name;
 
+    protected $extendedName;
+
     protected $extendedDirectory = false;
 
     protected $extendedNamespace = false;
@@ -80,10 +82,11 @@ class BundleMetadata {
         }
 
         $this->name = $information[count($information) - 1];
+        $this->extendedName = 'MetronicBackEndBundle';
         $this->vendor = $information[0];
         $this->namespace =  sprintf('%s\%s', $this->vendor, $information[1]);
-        $this->extendedDirectory = sprintf('%s/%s/%s', $this->configuration['application_dir'], $this->vendor, $information[1]);
-        $this->extendedNamespace = sprintf('Application\\%s\\%s', $this->vendor, $information[1]);
+        $this->extendedDirectory = sprintf('%s/%s/%s', $this->configuration['application_dir'], $this->vendor, $this->extendedName);
+        $this->extendedNamespace = sprintf('Application\\%s\\%s', $this->vendor, $this->extendedName);
         $this->valid = true;
 
 //        $this->ormMetadata = new OrmMetadata($this);
@@ -157,6 +160,11 @@ class BundleMetadata {
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getExtendedName()
+    {
+        return $this->extendedName;
     }
 
     /**

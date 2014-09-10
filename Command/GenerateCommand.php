@@ -82,7 +82,7 @@ EOT
         return $processed;
     }
 
-    protected function generateBundleDirectory(OutputInterface$output, BundleMetadata $bundleMetadata)
+    protected function generateBundleDirectory(OutputInterface $output, BundleMetadata $bundleMetadata)
     {
         $directories = array(
             '',
@@ -98,11 +98,10 @@ EOT
 
             // Search similar folder structure in the skeleton/bundle to copy to extended bundle
             if ($directory != '') {
-                $dest = realpath($this->bundleSkeletonDir . $directory);
-                $output->writeln(sprintf(($dest)));
-                if (false === $dest) {
+                $origin = realpath($this->bundleSkeletonDir . $directory);
+                if (false !== $origin) {
                      // TODO copiar recursivamente
-                    $this->recurse_copy($dest, $dir);
+                    $this->recurse_copy($origin, $dir);
                 }
             }
         }
@@ -110,7 +109,7 @@ EOT
 
     protected function generateBundleFile(OutputInterface$output, BundleMetadata $bundleMetadata)
     {
-        $file = sprintf('%s/Application%s.php', $bundleMetadata->getExtendedDirectory(), $bundleMetadata->getName());
+        $file = sprintf('%s/Application%s.php', $bundleMetadata->getExtendedDirectory(), $bundleMetadata->getExtendedName());
 
         if (is_file($file)) {
             return;
@@ -121,7 +120,7 @@ EOT
         $bundleTemplate = file_get_contents($this->bundleSkeletonDir . 'bundle.mustache');
 
         $string = $this->mustache($bundleTemplate, array(
-                'bundle'    => $bundleMetadata->getName(),
+                'bundle'    => $bundleMetadata->getExtendedName(),
                 'namespace' => $bundleMetadata->getExtendedNamespace(),
             ));
 
