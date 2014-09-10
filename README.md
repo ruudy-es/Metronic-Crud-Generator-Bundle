@@ -1,0 +1,1 @@
+php app/console ruudy:metronic-crud-generator:generate
