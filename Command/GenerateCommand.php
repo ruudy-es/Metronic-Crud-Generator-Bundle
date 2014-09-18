@@ -13,6 +13,7 @@ use Ruudy\MetronicCrudGeneratorBundle\Bundle\BundleMetadata;
 class GenerateCommand extends ContainerAwareCommand
 {
     protected $bundleSkeletonDir;
+
     /**
      * {@inheritDoc}
      */
@@ -23,16 +24,13 @@ class GenerateCommand extends ContainerAwareCommand
         $this
             ->setName('ruudy:metronic-crud-generator:generate')
             ->setHelp(<<<EOT
-The <info>easy-extends:generate:entities</info> command generating a valid bundle structure from a Vendor Bundle.
+The <info>ruudy:metronic-crud-generator:generate</info> command generating a valid bundle structure from a Vendor Bundle.
 
-  <info>ie: ./app/console sonata:easy-extends:generate SonataUserBundle</info>
+  <info>ie: ./app/console ruudy:metronic-crud-generator:generate RuudyMetronicCrudGeneratorBundle</info>
 EOT
             );
 
         $this->setDescription('Create necessary views used by Metronic Crud Generator Bundle bundle');
-
-//        $this->addArgument('bundle', InputArgument::IS_ARRAY, 'The bundle name to "easy-extends"');
-//        $this->addOption('dest', 'd', InputOption::VALUE_OPTIONAL, 'The base folder where the Application will be created', false);
     }
 
     /**
