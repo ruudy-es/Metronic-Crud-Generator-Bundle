@@ -4,8 +4,8 @@
     {# TODO #}
     {% embed 'RuudyMetronicBundle:metronic:zones/head.html.twig' %}
         {% block page_stylesheets %}
-            <link href="{{ asset('bundles/ruudymetronic/global/plugins/select2/select2.css') }}" rel="stylesheet" type="text/css"/>
-            <link href="{{ asset('bundles/ruudymetronic/global/plugins/data-tables/DT_bootstrap.css') }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset('bundles/applicationmetronic/global/plugins/select2/select2.css') }}" rel="stylesheet" type="text/css"/>
+            <link href="{{ asset('bundles/applicationmetronic/global/plugins/data-tables/DT_bootstrap.css') }}" rel="stylesheet" type="text/css"/>
         {% endblock %}
     {% endembed %}
 {% endblock %}
@@ -13,15 +13,15 @@
 {% block javascripts %}
     {% embed 'RuudyMetronicBundle:metronic:zones/javascripts.html.twig' %}
         {% block page_level_plugin_javascripts %}
-            <script src="{{ asset('bundles/ruudymetronic/global/plugins/select2/select2.min.js') }}"></script>
-            <script src="{{ asset('bundles/ruudymetronic/global/plugins/data-tables/jquery.dataTables.min.js') }}"></script>
-            <script src="{{ asset('bundles/ruudymetronic/global/plugins/data-tables/tabletools/js/dataTables.tableTools.min.js') }}"></script>
-            <script src="{{ asset('bundles/ruudymetronic/global/plugins/data-tables/DT_bootstrap.js') }}"></script>
+            <script src="{{ asset('bundles/applicationmetronic/global/plugins/select2/select2.min.js') }}"></script>
+            <script src="{{ asset('bundles/applicationmetronic/global/plugins/data-tables/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ asset('bundles/applicationmetronic/global/plugins/data-tables/tabletools/js/dataTables.tableTools.min.js') }}"></script>
+            <script src="{{ asset('bundles/applicationmetronic/global/plugins/data-tables/DT_bootstrap.js') }}"></script>
         {% endblock %}
 
         {% block page_level_javascripts %}
-            <script src="{{ asset('bundles/ruudymetronic/global/scripts/metronic.js') }}"></script>
-            <script src="{{ asset('bundles/ruudymetronic/admin/layout/scripts/layout.js') }}"></script>
+            <script src="{{ asset('bundles/applicationmetronic/global/scripts/metronic.js') }}"></script>
+            <script src="{{ asset('bundles/applicationmetronic/admin/layout/scripts/layout.js') }}"></script>
             <script src="{{ asset('bundles/ruudymetroniccrudgenerator/js/advanced_tables.js') }}"></script>
         {% endblock %}
 
