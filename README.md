@@ -80,7 +80,10 @@ After this, add new bundle to kernel:
 Usage
 =====
 
-This bundle comes with basic layout template based on Metronic Bundle, you can extend it
+This bundle comes with basic layout template based on Metronic Bundle, its allow you to start generating cruds of your entities without create any twig.
+ 
+I strongly recommend you 
+
 
 
 php app/console ruudy:metronic-crud-generator:generate

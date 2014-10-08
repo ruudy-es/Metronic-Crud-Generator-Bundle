@@ -38,6 +38,7 @@ class CrudCommand extends GenerateDoctrineCrudCommand
         $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudsGeneratorBundle/Resources/skeleton');
         $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudsGeneratorBundle/Resources');
         $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicBundle/Resources');
+        // TODO inyect user paths form config array published
 
         return $skeletonDirs;
     }
