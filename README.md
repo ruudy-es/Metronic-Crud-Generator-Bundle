@@ -1,5 +1,7 @@
 # METRONIC CRUD GENERATOR BUNDLE
 
+This bundle extends the symfony2 crud generator and 
+
 I apologize for the inconvenience that my english can produce.
 
 Thanks to Sonata Project, their code inspire me on how to do some things.
@@ -80,13 +82,21 @@ After this, add new bundle to kernel:
 Usage
 =====
 
-This bundle comes with basic layout template based on Metronic Bundle, its allow you to start generating cruds of your entities without create any twig.
- 
-I strongly recommend you 
+After the installation you have 2 options:
+
+1. Extend the bundle with your own Company/StoreBundle (take care that you need the views
+2. Use the bundle generated in src/Application/Ruudy
+
+Now just have to generate your Entities and This
+
+This bundle comes with basic layout template based on Metronic Bundle, you can extend it
 
 
 
-php app/console ruudy:metronic-crud-generator:generate
+php app/console doctrine:generate:entity
+
+
+
 
 After installation
 
