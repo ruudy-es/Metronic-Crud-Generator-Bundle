@@ -17,10 +17,6 @@
         "ruudy/metronic-bundle": "@dev",
         "friendsofsymfony/jsrouting-bundle": "@stable"
     },
-    "repositories" : [{
-        "type" : "vcs",
-        "url" : "https://bitbucket.org/ruudy/metronic-bundle.git"
-    }],
     "autoload" : {
         "psr-0" : {
             "Ruudy\\MetronicCrudGeneratorBundle" : ""
