@@ -21,14 +21,13 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('ruudy_metronic_crud_generator');
 
         $rootNode->
-        children()
-            ->arrayNode('override_resource_locations')
-                ->prototype('scalar')->end()
-            ->end()
-            ->arrayNode('add_resource_locations')
-                ->prototype('scalar')->end()
-            ->end()
-        ;
+            children()
+                ->arrayNode('override_resource_locations')
+                    ->prototype('scalar')->end()
+                ->end()
+                ->arrayNode('add_resource_locations')
+                    ->prototype('scalar')->end()
+                ->end();
 
         return $treeBuilder;
     }

@@ -20,13 +20,13 @@ Instalation
 
 Installation is a quick 4 step process:
 
-*. Configure Metronic Bundle (Optional)
-1. Download over composer
-2. Enable the bundle
-3. Generate the required files for the bundle
+1. Configure Metronic Bundle (if Needed)
+2. Download over composer
+3. Enable the bundle
+4. Generate the required files for the bundle
 
-* Configure Metronic Bundle (Optional)
---------------------------------------
+Step 1. Configure Metronic Bundle (if Needed)
+---------------------------------------------
 
 This package have dependencie of [**Ruudy - MetronicBundle**][1]
 
@@ -34,7 +34,7 @@ If you didn't follow the Metronic Bundle installation steps you must stop readin
  
 [**Ruudy - MetronicBundle Readme**][2]
 
-Step 1. Download over composer
+Step 2. Download over composer
 ------------------------------
 
 Add RuudyMetronicCrudGeneratorBundle require line to your composer.json:
@@ -51,7 +51,7 @@ or just add it by running the command:
 
 Composer will install the bundle to your project's ruudy/metronic-crud-generator-bundle directory.
 
-Step 2. Enable the bundle
+Step 3. Enable the bundle
 -------------------------
 
 Enable the bundle in the kernel:
@@ -67,7 +67,7 @@ Enable the bundle in the kernel:
         );
     }
 
-Step 3. Generate the required files for the bundle
+Step 4. Generate the required files for the bundle
 --------------------------------------------------
 
 At this point, the bundle is not yet ready. You need to generate the correct files and folders for the twig inherance:
@@ -111,26 +111,30 @@ The order you add the locations is important becuase it define the preference wh
             override_resource_locations: []
             add_resource_locations_ []
             
-Locations you add on override will be included before default bundle Dirs, locations you add, after.CrudCommand.php
-                                                                                                    GenerateCommand.php
+Locations defined on override will be included before default bundle Dirs, locations you add, after.
 
 Usage
 =====
 
-// TODO explain dependencie on metronic and how to generate Aplication bundle or link it
+After installation you have 2 options:
 
-After the installation you have 2 options:
-
-1. Extend the bundle with your own Company/StoreBundle (take care that you need the views
+1. Extend the bundle with your own Company/StoreBundle (take care of the views you need)
 2. Use the bundle generated in src/Application/Ruudy
 
-Now just have to generate your Entities and This
+Entity class is needed in the process, so create it if you dont have it:
+
+    $ php app/console generate:doctrine:entity
+    
+Or just run and follow the steps:
+
+    $ php app/console ruudy:metronic-crud-generator:crud
+    
+Command will create Controllers, form types, views and tests. 
+
+
 
 This bundle comes with basic layout template based on Metronic Bundle, you can extend it
 
-
-
-php app/console doctrine:generate:entity
 
 
 
