@@ -79,6 +79,31 @@ After this, add new bundle to kernel:
             );
         }
 
+Configuration (optional)
+========================
+
+If you are familiar with the Doctrine Crud Generator you know that the skeleton for the crud can be stored on many paths in you application, if not, i recommend you read the official documentation:
+
+[**Symfony2 - Overriding Skeleton Templates**][1]
+
+By default, this bundle comes with 3 paths to recognize the skeleton needed for generating the crud files.
+
+    $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudGeneratorBundle/Resources/skeleton');
+    $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudGeneratorBundle/Resources');
+    $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicBundle/Resources');
+    
+The order you add the locations is important becuase it define the preference when Generator search required files, so this bundle allow you to override or add locations:
+
+        // app/config/config.yml
+        
+        // ...
+        ruudy_metronic_crud_generator:
+            override_resource_locations: []
+            add_resource_locations_ []
+            
+Locations you add on override will be included before default bundle Dirs, locations you add, after.CrudCommand.php
+                                                                                                    GenerateCommand.php
+
 Usage
 =====
 
@@ -102,3 +127,6 @@ After installation
 
 
 Explicar como extenderlo
+
+
+[1]: http://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html#overriding-skeleton-templates

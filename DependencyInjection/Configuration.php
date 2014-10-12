@@ -13,7 +13,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
@@ -24,20 +24,12 @@ class Configuration implements ConfigurationInterface
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
         $rootNode->
-            children()
-                ->arrayNode('resource_locations')
-                    ->requiresAtLeastOneElement()
-                    ->prototype('array')
-//                        ->children()
-//                            ->scalarNode('full_name')
-//                                ->isRequired(true)
-//                            ->end()
-//                            ->booleanNode('is_active')
-//                                ->defaultValue(true)
-//                            ->end()
-//                        ->end()
-                    ->end()
-                ->end()
+        children()
+            ->arrayNode('override_resource_locations')
+                ->prototype('scalar')->end()
+            ->end()
+            ->arrayNode('add_resource_locations')
+                ->prototype('scalar')->end()
             ->end()
         ;
 

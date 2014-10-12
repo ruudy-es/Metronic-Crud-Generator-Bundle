@@ -19,7 +19,7 @@ class CrudCommand extends GenerateDoctrineCrudCommand
     {
         parent::configure();
 
-        $this->setName('ruudy:generate:crud');
+        $this->setName('ruudy:metronic-crud-generator:crud');
         $this->setDescription('Ruudy automatic crud generator based on metronic templates!');
     }
 
@@ -35,10 +35,22 @@ class CrudCommand extends GenerateDoctrineCrudCommand
             $skeletonDirs[] = $dir;
         }
 
-        $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudsGeneratorBundle/Resources/skeleton');
-        $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudsGeneratorBundle/Resources');
+        // Resource Locations
+        $container = $this->getContainer();
+
+        $resourceLocations = $container->getParameter( 'ruudy_metronic_crud_generator.override_resource_locations' );
+        foreach ($resourceLocations as $resourceLocation) {
+            $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource($resourceLocation);
+        }
+
+        $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudGeneratorBundle/Resources/skeleton');
+        $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicCrudGeneratorBundle/Resources');
         $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource('@RuudyMetronicBundle/Resources');
-        // TODO inyect user paths form config array published
+
+        $resourceLocations = $container->getParameter( 'ruudy_metronic_crud_generator.add_resource_locations' );
+        foreach ($resourceLocations as $resourceLocation) {
+            $skeletonDirs[] = $this->getContainer()->get('kernel')->locateResource($resourceLocation);
+        }
 
         return $skeletonDirs;
     }

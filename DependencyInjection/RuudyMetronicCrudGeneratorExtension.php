@@ -12,10 +12,10 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class RuudyMetronicCrudGeneratorBundleExtension extends Extension
+class RuudyMetronicCrudGeneratorExtension extends Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -24,10 +24,8 @@ class RuudyMetronicCrudGeneratorBundleExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
-    }
 
-    public function getAlias()
-    {
-        return 'ruudy_metronic_crud_generator';
+        $container->setParameter( 'ruudy_metronic_crud_generator.override_resource_locations', $config[ 'override_resource_locations' ]);
+        $container->setParameter( 'ruudy_metronic_crud_generator.add_resource_locations', $config[ 'add_resource_locations' ]);
     }
 }
