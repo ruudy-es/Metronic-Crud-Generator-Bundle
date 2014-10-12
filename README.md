@@ -20,9 +20,19 @@ Instalation
 
 Installation is a quick 4 step process:
 
+*. Configure Metronic Bundle (Optional)
 1. Download over composer
 2. Enable the bundle
 3. Generate the required files for the bundle
+
+* Configure Metronic Bundle (Optional)
+--------------------------------------
+
+This package have dependencie of [**Ruudy - MetronicBundle**][1]
+
+If you didn't follow the Metronic Bundle installation steps you must stop reading this readme and first of all, install and configure that bundle.
+ 
+[**Ruudy - MetronicBundle Readme**][2]
 
 Step 1. Download over composer
 ------------------------------
@@ -84,7 +94,7 @@ Configuration (optional)
 
 If you are familiar with the Doctrine Crud Generator you know that the skeleton for the crud can be stored on many paths in you application, if not, i recommend you read the official documentation:
 
-[**Symfony2 - Overriding Skeleton Templates**][1]
+[**Symfony2 - Overriding Skeleton Templates**][3]
 
 By default, this bundle comes with 3 paths to recognize the skeleton needed for generating the crud files.
 
@@ -106,6 +116,8 @@ Locations you add on override will be included before default bundle Dirs, locat
 
 Usage
 =====
+
+// TODO explain dependencie on metronic and how to generate Aplication bundle or link it
 
 After the installation you have 2 options:
 
@@ -129,4 +141,6 @@ After installation
 Explicar como extenderlo
 
 
-[1]: http://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html#overriding-skeleton-templates
+[1]: https://github.com/ruudy-es/Metronic-Bundle
+[2]: https://github.com/ruudy-es/Metronic-Bundle/blob/master/README.md
+[3]: http://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html#overriding-skeleton-templates
