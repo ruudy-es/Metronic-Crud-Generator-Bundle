@@ -24,6 +24,7 @@ Installation is a quick 4 step process:
 2. Download over composer
 3. Enable the bundle
 4. Generate the required files for the bundle
+5. Extending & Configurating it (optional)
 
 Step 1. Configure Metronic Bundle (if Needed)
 ---------------------------------------------
@@ -70,7 +71,9 @@ Enable the bundle in the kernel:
 Step 4. Generate the required files for the bundle
 --------------------------------------------------
 
-At this point, the bundle is not yet ready. You need to generate the correct files and folders for the twig inherance:
+At this point, the bundle is not yet ready and you must choose between use default basic views provided in this bundle, or create your own. I recommend test this bundle with default view, but if you want create your layouts from scratch, you can go directly to Step 5.
+
+You need to generate the correct files and folders for the twig inherance:
 
     $ php app/console ruudy:metronic:generate
 
@@ -89,8 +92,8 @@ After this, add new bundle to kernel:
             );
         }
 
-Configuration (optional)
-========================
+Step 5. Extending & Configurating it (optional)
+===============================================
 
 If you are familiar with the Doctrine Crud Generator you know that the skeleton for the crud can be stored on many paths in you application, if not, i recommend you read the official documentation:
 
@@ -113,15 +116,19 @@ The order you add the locations is important becuase it define the preference wh
             
 Locations defined on override will be included before default bundle Dirs, locations you add, after.
 
+This functionality allow you to modify the basic layout i propose or just create new one.
+
 Usage
 =====
 
-After installation you have 2 options:
+After installation you can just use the bundle generated in:
+
+    src/Application/Ruudy
 
 1. Extend the bundle with your own Company/StoreBundle (take care of the views you need)
 2. Use the bundle generated in src/Application/Ruudy
 
-Entity class is needed in the process, so create it if you dont have it:
+Entity class is needed in the process, so create one if you dont have it:
 
     $ php app/console generate:doctrine:entity
     
@@ -129,20 +136,7 @@ Or just run and follow the steps:
 
     $ php app/console ruudy:metronic-crud-generator:crud
     
-Command will create Controllers, form types, views and tests. 
-
-
-
-This bundle comes with basic layout template based on Metronic Bundle, you can extend it
-
-
-
-
-
-After installation
-
-
-Explicar como extenderlo
+Command will create necessary Controllers, form types, views and tests.
 
 
 [1]: https://github.com/ruudy-es/Metronic-Bundle
