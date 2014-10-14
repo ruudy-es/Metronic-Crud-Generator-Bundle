@@ -7,15 +7,24 @@
         "email" : "daniel.abad.85@gmail.com"
     }],
     "keywords" : [
-        "metronick bundle"
+        "symfony2",
+        "metronic crud generator",
+        "metronic crud generator bundle",
+        "metronic bundle",
+        "metronic",
+        "cms",
+        "admin template",
+        "backoffice",
+        "crud",
+        "crud template"
     ],
     "license" : [
         "MIT"
     ],
     "require" : {
         "twig/extensions": "~1.0",
-        "ruudy/metronic-bundle": "@dev",
-        "friendsofsymfony/jsrouting-bundle": "@stable"
+        "symfony/symfony": "2.*",
+        "ruudy/metronic-bundle": "@dev"
     },
     "autoload" : {
         "psr-0" : {
@@ -27,7 +36,7 @@
     }],
     "extra" : {
         "branch-alias" : {
-            "dev-master" : "0.3-dev"
+            "dev-master" : "0.6-dev"
         }
     }
 }
