@@ -15,7 +15,9 @@
 {% block user_login_dropdown %}
     {% embed 'RuudyMetronicBundle:metronic:pieces/header/user_login_dropdown.html.twig' %}
         {% block username %}
-            {{ app.user.username }}
+            {% if app.user.username is defined %}
+                {{ app.user.username }}
+            {% endif %}
         {% endblock %}
 
         {% block dropdown_menu %}
