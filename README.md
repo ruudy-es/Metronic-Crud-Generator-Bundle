@@ -138,16 +138,34 @@ Or just run and follow the steps:
     
 Command will create necessary Controllers, form types, views and tests.
 
-Common Errors
-=============
+Common Errors $ Doubts
+======================
 
-Dont forget to add the annotation route in one of your routng files, in this example i use yml, so in one of my "routing.yml" loaded.
+-- Dont forget to add the annotation route in one of your routng files, in this example i use yml, so in one of my "routing.yml" loaded.
 
     cruds:
       resource: "@CompanyStoreBundle/Controller/"
       type: annotation
       prefix: /admin
 
+-- I suppose you will use this bundle in an private admin enviroment, for avoid errors i added this check:
+
+    // src/Application/Ruudy/MetronicBackEndBundle/Resources/views/zones/admin/header.html.twig
+    
+    {% if app.user.username is defined %}
+        {{ app.user.username }}
+    {% endif %}
+    
+-- Like previous point, logout path is normally in all backoffice applications:
+
+    An exception has been thrown during the rendering of a template ("Unable to generate a URL for the named route "logout" as such route does not exist.")
+    
+   Can be easy bypass adding:
+   
+    logout:
+        path: /logout
+
+-- Dont forget to follow Metronic Bundle installation steps or you will see non styled pages.
 
 [1]: https://github.com/ruudy-es/Metronic-Bundle
 [2]: https://github.com/ruudy-es/Metronic-Bundle/blob/master/README.md
