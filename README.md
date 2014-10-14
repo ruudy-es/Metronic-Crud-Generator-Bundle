@@ -138,6 +138,16 @@ Or just run and follow the steps:
     
 Command will create necessary Controllers, form types, views and tests.
 
+Common Errors
+=============
+
+Dont forget to add the annotation route in one of your routng files, in this example i use yml, so in one of my "routing.yml" loaded.
+
+    cruds:
+      resource: "@CompanyStoreBundle/Controller/"
+      type: annotation
+      prefix: /admin
+
 
 [1]: https://github.com/ruudy-es/Metronic-Bundle
 [2]: https://github.com/ruudy-es/Metronic-Bundle/blob/master/README.md
