@@ -75,7 +75,7 @@ At this point, the bundle is not yet ready and you must choose between use defau
 
 You need to generate the correct files and folders for the twig inherance:
 
-    $ php app/console ruudy:metronic:generate
+    $ php app/console ruudy:metronic-crud-generator:generate
 
 This command will generate and skeleton bundle on src/Application/Ruudy/, and some folders to populate with the Metronic Template Assets.
 
