@@ -2,7 +2,6 @@
 
 namespace Ruudy\MetronicCrudGeneratorBundle\Command;
 
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,7 +18,7 @@ class GenerateCommand extends ContainerAwareCommand
      */
     protected function configure()
     {
-        $this->bundleSkeletonDir = __DIR__ . '/../Resources/skeleton/bundle/';
+        $this->bundleSkeletonDir = '../Resources/skeleton/bundle/';
 
         $this
             ->setName('ruudy:metronic-crud-generator:generate')
@@ -98,8 +97,7 @@ EOT
             if ($directory != '') {
                 $origin = realpath($this->bundleSkeletonDir . $directory);
                 if (false !== $origin) {
-                     // TODO copiar recursivamente
-                    $this->recurse_copy($origin, $dir);
+                    $this->recurseCopy($origin, $dir);
                 }
             }
         }
@@ -135,7 +133,7 @@ EOT
         return preg_replace_callback('/{{\s*(.+?)\s*}}/', $replacer, $string);
     }
 
-    protected function recurse_copy($src, $dst)
+    protected function recurseCopy($src, $dst)
     {
         $dir = opendir($src);
 
@@ -143,7 +141,7 @@ EOT
         while(false !== ( $file = readdir($dir)) ) {
             if (( $file != '.' ) && ( $file != '..' )) {
                 if ( is_dir($src . '/' . $file) ) {
-                    $this->recurse_copy($src . '/' . $file,$dst . '/' . $file);
+                    $this->recurseCopy($src . '/' . $file,$dst . '/' . $file);
                 }
                 else {
                     copy($src . '/' . $file,$dst . '/' . $file);
