@@ -1,5 +1,7 @@
 # METRONIC CRUD GENERATOR BUNDLE
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c2842afc-efed-4149-9e86-0ca4a26b1f99/mini.png)](https://insight.sensiolabs.com/projects/c2842afc-efed-4149-9e86-0ca4a26b1f99)
+
 This bundle extends the symfony2 crud generator and 
 
 I apologize for the inconvenience that my english can produce.
