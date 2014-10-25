@@ -54,4 +54,4 @@ class CrudCommand extends GenerateDoctrineCrudCommand
 
         return $skeletonDirs;
     }
-} 
+}
