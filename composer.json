@@ -24,7 +24,7 @@
     "require" : {
         "twig/extensions": "~1.0",
         "symfony/symfony": "2.*",
-        "ruudy/metronic-bundle": "@stable"
+        "ruudy/metronic-bundle": "@dev"
     },
     "autoload" : {
         "psr-0" : {
