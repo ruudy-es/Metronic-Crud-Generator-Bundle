@@ -1,6 +1,6 @@
 # METRONIC CRUD GENERATOR BUNDLE
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c2842afc-efed-4149-9e86-0ca4a26b1f99/mini.png)](https://insight.sensiolabs.com/projects/c2842afc-efed-4149-9e86-0ca4a26b1f99)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/c2842afc-efed-4149-9e86-0ca4a26b1f99/mini.png)](https://insight.sensiolabs.com/projects/c2842afc-efed-4149-9e86-0ca4a26b1f99) [![Total Downloads](https://poser.pugx.org/ruudy/metronic-crud-generator-bundle/downloads.svg)](https://packagist.org/packages/ruudy/metronic-crud-generator-bundle) [![Latest Stable Version](https://poser.pugx.org/ruudy/metronic-crud-generator-bundle/v/stable.svg)](https://packagist.org/packages/ruudy/metronic-crud-generator-bundle) [![License](https://poser.pugx.org/ruudy/metronic-crud-generator-bundle/license.svg)](https://packagist.org/packages/ruudy/metronic-crud-generator-bundle)
 
 This bundle extends the symfony2 crud generator and 
 
